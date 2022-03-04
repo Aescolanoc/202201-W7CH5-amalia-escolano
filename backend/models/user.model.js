@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 export const userSchema = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
     passwd: { type: String, required: true },
-    image: { type: String },
-    about: { type: String },
+    image: { type: String, required: false },
+    about: { type: String, required: false },
     friends: [
         {
             type: mongoose.Types.ObjectId,
@@ -26,4 +26,4 @@ userSchema.set('toJSON', {
     },
 });
 
-export const User = mongoose.model('users', userSchema);
+export const User = mongoose.model('User', userSchema);
