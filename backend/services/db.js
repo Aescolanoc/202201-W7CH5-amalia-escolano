@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 import mongoose from 'mongoose';
-import { User } from '../models/users.model.js';
+import { User } from '../models/user.model.js';
 
 export async function mongoConnect() {
     const user = process.env.DBUSER;

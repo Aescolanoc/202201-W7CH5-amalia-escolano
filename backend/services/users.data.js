@@ -6,7 +6,7 @@ export default {
             image: 'https://i.imgur.com/sEPM6Is.png',
             about: '',
             friends: [],
-            unfriends: [],
+            enemies: [],
         },
         {
             name: 'Ana',
@@ -14,7 +14,15 @@ export default {
             image: 'https://i.imgur.com/V2pRUjf.png',
             about: '',
             friends: [],
-            unfriends: [],
+            enemies: [],
+        },
+        {
+            name: 'Paco',
+            passwd: '1234',
+            image: 'https://i.imgur.com/XxBYC8P.jpg',
+            about: '',
+            friends: [],
+            enemies: [],
         },
     ],
 };

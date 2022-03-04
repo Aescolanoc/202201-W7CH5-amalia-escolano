@@ -1,0 +1,27 @@
+POST http://localhost:4500/users
+content-type: application/json
+
+{
+  "name": "Pepe",
+  "passwd": "12345",
+  "image": "https://i.imgur.com/sEPM6Is.png",
+  "about": "Le gusta el chorizo"
+}
+
+###
+
+POST http://localhost:4500/users/login
+content-type: application/json
+
+{
+    "name":"Eva",
+     "passwd": "12345"
+
+}
+
+###
+
+GET http://localhost:4500/
+content-type: application/json
+
+###
