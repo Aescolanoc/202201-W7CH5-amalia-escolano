@@ -1,56 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { UserAuth } from "./components/user-auth";
+import { useSelector } from "react-redux";
+import { UserForm } from "./components/user-form";
+import { UsersList } from "./components/user-list";
+import { UserDetails } from "./components/user-details";
 
 function App() {
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+        <h1>FLUXBOOK</h1>
       </header>
+      <main>
+        <Routes>
+          <Route path="/login" element={<UserAuth />} />
+          <Route path="/register" element={<UserForm />} />
+          <Route path="/update" element={<UserForm />} />
+          <Route path="/users" element={<UsersList />} />
+          <Route path="/users/:id" element={<UserDetails />} />
+          <Route path="*" element={<UserAuth />} />
+        </Routes>
+      </main>
     </div>
   );
 }

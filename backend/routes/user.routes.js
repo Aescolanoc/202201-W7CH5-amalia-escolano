@@ -15,10 +15,10 @@ import { loginRequired } from '../middlewares/interceptors.js';
 
 router.post('/', insertUser);
 router.post('/login', login);
-router.get('/', loginRequired, getAllUsers);
+router.get('/', getAllUsers);
 router.get('/friends', loginRequired, getAllFriends);
 router.get('/enemies', loginRequired, getAllEnemies);
-router.get('/:id', loginRequired, getUser);
+router.get('/:id', getUser);
 router.patch('/:id', loginRequired, updateUser);
 router.patch('/friends/:id', loginRequired, toggleFriend);
 router.patch('/enemies/:id', loginRequired, toggleEnemy);
