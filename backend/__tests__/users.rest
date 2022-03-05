@@ -2,9 +2,9 @@ POST http://localhost:4500/users
 content-type: application/json
 
 {
-  "name": "Alberto",
+  "name": "Susana",
   "passwd": "12345",
-  "image": "https://i.imgur.com/sEPM6Is.png",
+  "image": "No image",
   "about": "About de prueba"
 }
 
@@ -48,10 +48,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwia
 
 ###
 
-PATCH  http://localhost:4500/users/62224b94d5ae1b8d6d9d005f
-content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDMwMzQ4fQ.rkWOQcrkpnCwRTdG5jQczRP2WNjP-1h6_cdudp75Qts
-{
-    "name":"Eva",
+# PATCH  http://localhost:4500/users/62224b94d5ae1b8d6d9d005f
+# content-type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDMwMzQ4fQ.rkWOQcrkpnCwRTdG5jQczRP2WNjP-1h6_cdudp75Qts
+# {
+#     "name":"Eva",
 
-}
+# }
