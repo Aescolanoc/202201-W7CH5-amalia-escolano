@@ -14,13 +14,13 @@ export const login = async (req, resp, next) => {
         if (userDb) {
             if (bcrypt.compareSync(userToCheck.passwd, userDb.passwd)) {
                 const token = createToken({
-                    name: userToCheck.name,
-                    id: userToCheck.id,
+                    name: userDb.name,
+                    id: userDb._id.toString(),
                 });
                 resp.json({
                     token,
-                    userName: userToCheck.name,
-                    id: userToCheck.id,
+                    name: userDb.name,
+                    id: userDb._id.toString(),
                 });
             } else {
                 next(new Error(loginError));

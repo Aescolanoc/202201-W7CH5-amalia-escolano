@@ -11,18 +11,16 @@ export function register(user) {
   return axios.post(USERS_API, user);
 }
 
-export function getAllUsers() {
-  return axios.get(USERS_API);
+export function getAllUsers(token) {
+  return axios.get(USERS_API, {
+    headers: { authorization: "Bearer " + token },
+  });
 }
 
-// export function getAllUsers(token) {
-//   return axios.get(USERS_API, {
-//     headers: { authorization: "Bearer " + token },
-//   });
-// }
-
-export function getUserDetails(id) {
-  return axios.get(USERS_API + id);
+export function getUserDetails(id, token) {
+  return axios.get(USERS_API + id, {
+    headers: { authorization: "Bearer " + token },
+  });
 }
 
 export function updateUser(user, token) {

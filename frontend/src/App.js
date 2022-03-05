@@ -2,13 +2,11 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { UserAuth } from "./components/user-auth";
-import { useSelector } from "react-redux";
 import { UserForm } from "./components/user-form";
 import { UsersList } from "./components/user-list";
 import { UserDetails } from "./components/user-details";
 
 function App() {
-  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       <header className="App-header">

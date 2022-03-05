@@ -5,7 +5,7 @@ dotenv.config();
 export function createToken(user) {
     const tokenPayload = {
         name: user.name,
-        id: user.id,
+        id: user._id,
     };
     const secret = process.env.SECRET;
     return jwt.sign(tokenPayload, secret);
@@ -18,4 +18,10 @@ export function verifyToken(token) {
     } catch (error) {
         return error.message;
     }
+}
+
+export function getTokenInfo(token) {
+    const result = jwt.verify(token, process.env.SECRET);
+    console.log(result);
+    return result;
 }
