@@ -3,24 +3,26 @@ import * as actions from "../reducer/user/action-creator";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { checkToken } from "../helper/helper";
 
 export function UserForm(user) {
   const [currentUser, setCurrentUser] = useState({});
   const userState = useSelector((state) => {
-    return state;
+    return state.session;
   });
   const dispatch = useDispatch();
-  console.log("user form: ", user);
 
-  let pathname = window.location.pathname;
-  pathname = pathname.split("/");
-  console.log("pathname: ", pathname);
+  let pathName = window.location.pathname;
+  pathName = pathName.split("/");
+  let token = checkToken();
 
   useEffect(() => {
-    if (pathname[1] === "update") {
-      getUserDetails(pathname[3]).then((resp) => {
-        setCurrentUser(resp.data);
-      });
+    if (pathName[3]) {
+      if (pathName[1] === "update") {
+        getUserDetails(pathName[3]).then((resp) => {
+          setCurrentUser(resp.data);
+        });
+      }
     }
   }, []);
 
@@ -28,7 +30,7 @@ export function UserForm(user) {
   let userModified = currentUser;
 
   function handleChange(ev) {
-    if (pathname[1] === "update") {
+    if (pathName[1] === "update") {
       userModified = { ...userModified, [ev.target.name]: ev.target.value };
     } else {
       newUser = { ...newUser, [ev.target.name]: ev.target.value };
@@ -37,7 +39,7 @@ export function UserForm(user) {
 
   function handleUpdate(event) {
     event.preventDefault();
-    updateUser(userModified).then((resp) => {
+    updateUser(userModified, token).then((resp) => {
       dispatch(actions.updateUser(resp.data));
     });
     setCurrentUser(userModified);
@@ -54,7 +56,7 @@ export function UserForm(user) {
     <>
       <p>Introduce aqui los datos:</p>
       <form action="">
-        {pathname[1] === "update" ? (
+        {pathName[1] === "update" ? (
           ""
         ) : (
           <>
@@ -65,7 +67,7 @@ export function UserForm(user) {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder={currentUser.name ? currentUser.name : ""}
+                  placeholder={userState.name ? userState.name : ""}
                   maxLength="30"
                   onChange={(ev) => handleChange(ev)}
                 ></input>
@@ -86,10 +88,10 @@ export function UserForm(user) {
               type="text"
               id="image"
               name="image"
-              placeholder={currentUser.image ? currentUser.image : ""}
+              placeholder={userState.image ? userState.image : ""}
               onChange={(ev) => handleChange(ev)}
             ></input>
-            {pathname[1] === "update" ? (
+            {pathName[1] === "update" ? (
               <button name="image" onClick={(ev) => handleUpdate(ev)}>
                 actualizar
               </button>
@@ -105,10 +107,10 @@ export function UserForm(user) {
               type="text"
               id="about"
               name="about"
-              placeholder={currentUser.about ? currentUser.about : ""}
+              placeholder={userState.about ? userState.about : ""}
               onChange={(ev) => handleChange(ev)}
             ></input>
-            {pathname[1] === "update" ? (
+            {pathName[1] === "update" ? (
               <button name="about" onClick={(ev) => handleUpdate(ev)}>
                 actualizar
               </button>
@@ -118,7 +120,7 @@ export function UserForm(user) {
           </label>
         </div>
         <div>
-          {pathname[1] === "update" ? (
+          {pathName[1] === "update" ? (
             ""
           ) : (
             <button type="submit" name="add" onClick={(ev) => handleClick(ev)}>
@@ -128,10 +130,10 @@ export function UserForm(user) {
         </div>
       </form>
 
-      <Link to={`/users/${currentUser._id}`}>
-        {pathname[1] === "update" ? <button>Ver Detalles {currentUser.name}</button> : ""}
+      <Link to={`/users/${userState.id}`}>
+        {pathName[1] === "update" ? <button>Ver Detalles {userState.name}</button> : ""}
       </Link>
-      {currentUser.name ? (
+      {userState.name ? (
         <Link to="/userslist">
           <button>Volver al listado</button>
         </Link>

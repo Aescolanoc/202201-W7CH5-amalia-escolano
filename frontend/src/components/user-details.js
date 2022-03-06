@@ -4,16 +4,16 @@ import { getUserDetails } from "../services/api";
 import { RelationButton } from "./relation-butoon";
 import { checkToken } from "../helper/helper";
 
-export function UserDetails(user) {
-  let pathname = window.location.pathname;
-  pathname = pathname.split("/");
-  let token = checkToken();
-
+export function UserDetails() {
   const [userDetails, setUserDetails] = useState({});
+
+  let pathName = window.location.pathname;
+  pathName = pathName.split("/");
+  let token = checkToken();
 
   useEffect(() => {
     if (token) {
-      getUserDetails(pathname[2], token).then((resp) => {
+      getUserDetails(pathName[2], token).then((resp) => {
         setUserDetails(resp.data);
       });
     }
@@ -31,10 +31,11 @@ export function UserDetails(user) {
             </figure>
           </div>
           <div>about: {userDetails.about}</div>
+
           <div>
             <RelationButton />
             <Link to="/users">
-              <button>Volver al listado</button>
+              <button>Ver listado de usuarios</button>
             </Link>
           </div>
         </>
