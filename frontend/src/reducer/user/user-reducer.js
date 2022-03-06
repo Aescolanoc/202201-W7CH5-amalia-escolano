@@ -4,10 +4,6 @@ const initialState = [];
 
 export function userReducer(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.login:
-      return { ...action.payload, isLogged: true };
-    case actionTypes.logout:
-      return initialState;
     case actionTypes.loadUsers:
       return [...action.payload];
     case actionTypes.addUser:

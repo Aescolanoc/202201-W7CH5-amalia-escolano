@@ -21,6 +21,9 @@ export const login = async (req, resp, next) => {
                     token,
                     name: userDb.name,
                     id: userDb._id.toString(),
+                    image: userDb.image,
+                    friends: userDb.friends,
+                    enemies: userDb.enemies,
                 });
             } else {
                 next(new Error(loginError));

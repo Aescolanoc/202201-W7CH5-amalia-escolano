@@ -1,14 +1,5 @@
 import { actionTypes } from "./action-types";
 
-export const login = (payload) => ({
-  type: actionTypes.login,
-  payload,
-});
-
-export const logout = () => ({
-  type: actionTypes.logout,
-});
-
 export const loadUsers = (payload) => ({
   type: actionTypes.loadUsers,
   payload,

@@ -5,8 +5,11 @@ import { getAllUsers } from "../services/api";
 import { Link } from "react-router-dom";
 
 export function UsersList() {
+  const usersList = useSelector((state) => {
+    return state.user;
+  });
   const userState = useSelector((state) => {
-    return state;
+    return state.session;
   });
   const dispatch = useDispatch();
 
@@ -21,17 +24,22 @@ export function UsersList() {
 
   return (
     <div>
-      {userState.length ? (
+      <h3>Lista de usuarios</h3>
+      {usersList.length ? (
         <div>
-          {userState.map((item, index) => (
+          {usersList.map((item, index) => (
             <div key={item._id}>
               <Link to={{ pathname: `/users/${item._id}` }}>
-                <>
-                  <figure>
-                    <img src={item.image} alt={item.name} />
-                    <figcaption>{item.name}</figcaption>
-                  </figure>
-                </>
+                {userState.id === item._id ? (
+                  ""
+                ) : (
+                  <>
+                    <figure>
+                      <img src={item.image} alt={item.name} />
+                      <figcaption>{item.name}</figcaption>
+                    </figure>
+                  </>
+                )}
               </Link>
             </div>
           ))}

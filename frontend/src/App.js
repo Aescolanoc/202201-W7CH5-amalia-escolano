@@ -5,12 +5,18 @@ import { UserAuth } from "./components/user-auth";
 import { UserForm } from "./components/user-form";
 import { UsersList } from "./components/user-list";
 import { UserDetails } from "./components/user-details";
+import { useSelector } from "react-redux";
+import { SessionInfo } from "./components/session-info";
 
 function App() {
+  const userState = useSelector((state) => {
+    return state.session;
+  });
   return (
     <div className="App">
       <header className="App-header">
         <h1>FLUXBOOK</h1>
+        {userState.isLogged ? <SessionInfo /> : ""}
       </header>
       <main>
         <Routes>
