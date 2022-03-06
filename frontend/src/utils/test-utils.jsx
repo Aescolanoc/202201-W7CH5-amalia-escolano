@@ -3,9 +3,23 @@ import React from "react";
 import { render as rtlRender } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { taskReducer } from "../redux/todo/todo-reducer";
+import { sessionReducer } from "../reducer/session/session-reducer";
+import { userReducer } from "../reducer/user/user-reducer";
 
-function render(ui, { preloadedState, store = configureStore({ reducer: taskReducer, preloadedState }), ...renderOptions } = {}) {
+function render(
+  ui,
+  {
+    preloadedState,
+    store = configureStore({
+      reducer: {
+        session: sessionReducer,
+        user: userReducer,
+      },
+      preloadedState,
+    }),
+    ...renderOptions
+  } = {}
+) {
   function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;
   }

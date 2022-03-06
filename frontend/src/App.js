@@ -18,6 +18,7 @@ function App() {
         <h1>FLUXBOOK</h1>
         {userState.isLogged ? <SessionInfo /> : ""}
       </header>
+      <hr />
       <main>
         <Routes>
           <Route path="/login" element={<UserAuth />} />

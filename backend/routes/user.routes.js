@@ -5,22 +5,22 @@ import {
     insertUser,
     getAllUsers,
     getUser,
-    getAllFriends,
+    // getAllFriends,
     updateUser,
-    getAllEnemies,
-    toggleFriend,
-    toggleEnemy,
+    // getAllEnemies,
+    // toggleFriend,
+    // toggleEnemy,
 } from '../controllers/user.controller.js';
 import { loginRequired } from '../middlewares/interceptors.js';
 
 router.post('/', insertUser);
 router.post('/login', login);
 router.get('/', loginRequired, getAllUsers);
-router.get('/friends', loginRequired, getAllFriends);
-router.get('/enemies', loginRequired, getAllEnemies);
+// router.get('/friends', loginRequired, getAllFriends);
+// router.get('/enemies', loginRequired, getAllEnemies);
 router.get('/:id', loginRequired, getUser);
 router.patch('/:id', loginRequired, updateUser);
-router.patch('/friends/:id', loginRequired, toggleFriend);
-router.patch('/enemies/:id', loginRequired, toggleEnemy);
+// router.patch('/friends/:id', loginRequired, toggleFriend);
+// router.patch('/enemies/:id', loginRequired, toggleEnemy);
 
 export default router;

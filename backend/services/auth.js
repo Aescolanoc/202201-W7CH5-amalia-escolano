@@ -22,6 +22,5 @@ export function verifyToken(token) {
 
 export function getTokenInfo(token) {
     const result = jwt.verify(token, process.env.SECRET);
-    console.log(result);
     return result;
 }
