@@ -18,9 +18,6 @@ describe('Given the user controller', () => {
 
     describe('When getAllUsers is triggered', () => {
         describe('And it works (promise is resolved)', () => {
-            beforeEach(() => {
-                User.find.mockReturnValue([]);
-            });
             test('Then call send', async () => {
                 User.find.mockReturnValue([]);
                 await controller.getAllUsers(req, res, next);
