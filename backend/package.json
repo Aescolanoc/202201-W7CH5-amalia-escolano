@@ -1,5 +1,5 @@
 {
-    "name": "w7ch3-amalia-escolano",
+    "name": "202201-w7ch5-amalia-escolano",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -21,7 +21,9 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jest": "^26.0.0",
-        "jest": "^27.4.7"
+        "jest": "^27.4.7",
+        "mockingoose": "^2.15.2",
+        "supertest": "^6.2.2"
     },
     "prettier": {
         "singleQuote": true
@@ -45,7 +47,6 @@
         "express": "^4.17.3",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.2.3",
-        "morgan": "^1.10.0",
-        "supertest": "^6.2.2"
+        "morgan": "^1.10.0"
     }
 }

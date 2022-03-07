@@ -1,0 +1,57 @@
+POST http://localhost:4500/users
+content-type: application/json
+
+{
+  "name": "Susana",
+  "passwd": "12345",
+  "image": "No image",
+  "about": "About de prueba"
+}
+
+###
+
+POST http://localhost:4500/users/login
+content-type: application/json
+
+{
+    "name":"Alberto",
+     "passwd": "12345"
+
+}
+
+###
+
+
+GET http://localhost:4500/users
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDMxNDM5fQ.b3QbcoRnvZnWqqEEuNALOw5n7gRCZujCuEn8FyfRQjc
+###
+
+
+GET http://localhost:4500/users/62224b94d5ae1b8d6d9d005f
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDMxNDM5fQ.b3QbcoRnvZnWqqEEuNALOw5n7gRCZujCuEn8FyfRQjc
+
+###
+
+
+GET http://localhost:4500/users/friends
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDMxNDM5fQ.b3QbcoRnvZnWqqEEuNALOw5n7gRCZujCuEn8FyfRQjc
+
+###
+
+
+GET http://localhost:4500/users/enemies
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDI3Njk0fQ.JW2uhazSagthYv8VXF02yf_fso29TTfl1aBZnwoT9hM
+
+###
+
+# PATCH  http://localhost:4500/users/62224b94d5ae1b8d6d9d005f
+# content-type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRXZhIiwiaWF0IjoxNjQ2NDMwMzQ4fQ.rkWOQcrkpnCwRTdG5jQczRP2WNjP-1h6_cdudp75Qts
+# {
+#     "name":"Eva",
+
+# }
