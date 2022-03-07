@@ -15,12 +15,12 @@ export const login = async (req, resp, next) => {
             if (bcrypt.compareSync(userToCheck.passwd, userDb.passwd)) {
                 const token = createToken({
                     name: userDb.name,
-                    id: userDb._id.toString(),
+                    id: userDb._id,
                 });
                 resp.json({
                     token,
                     name: userDb.name,
-                    id: userDb._id.toString(),
+                    id: userDb._id,
                     image: userDb.image,
                     friends: userDb.friends,
                     enemies: userDb.enemies,

@@ -1,4 +1,4 @@
-import { render, screen, waitForElement } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import { store } from "../reducer/store";
@@ -15,6 +15,5 @@ describe("user-list Component", () => {
     );
 
     expect(screen.findAllByAltText(/Lista de usuarios/i));
-    await waitForElement(() => expect(screen.findAllByRole("figure")));
   });
 });
