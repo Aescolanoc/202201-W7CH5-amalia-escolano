@@ -18,16 +18,13 @@ describe('Given the user controller', () => {
 
     describe('When getAllUsers is triggered', () => {
         describe('And it works (promise is resolved)', () => {
-            beforeEach(() => {
-                User.find.mockReturnValue({
-                    populate: jest.fn().mockResolvedValue([]),
-                });
-            });
             test('Then call send', async () => {
+                User.find.mockReturnValue([]);
                 await controller.getAllUsers(req, res, next);
                 expect(res.json).toHaveBeenCalled();
             });
             test('Then call send', async () => {
+                User.findOne.mockReturnValue({});
                 await controller.getUser(req, res, next);
                 expect(res.json).toHaveBeenCalled();
             });
@@ -37,6 +34,7 @@ describe('Given the user controller', () => {
                 expect(res.json).not.toHaveBeenCalled();
             });
             test('Then call send', async () => {
+                User.findOneAndUpdate.mockReturnValue({});
                 await controller.updateUser(req, res, next);
                 expect(res.json).not.toHaveBeenCalled();
                 expect(next).toHaveBeenCalled();
